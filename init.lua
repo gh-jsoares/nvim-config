@@ -1,1 +1,1 @@
-require("new.jsoares")
+require("jsoares")
