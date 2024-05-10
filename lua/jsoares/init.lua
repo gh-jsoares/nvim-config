@@ -1,11 +1,10 @@
 require("jsoares.set")
 require("jsoares.remap")
-require("jsoares.present")
+require("jsoares.lazy_init")
 
 local augroup = vim.api.nvim_create_augroup
--- local jsoaresGroup = augroup('jsoares', {})
-
 local autocmd = vim.api.nvim_create_autocmd
+
 local yank_group = augroup('HighlightYank', { clear = true })
 
 function R(name)
@@ -23,8 +22,9 @@ autocmd('TextYankPost', {
     end,
 })
 
+-- local whitespace_trim_group = augroup('WhiteSpaceTrim', { clear = true })
 -- autocmd({"BufWritePre"}, {
---     group = jsoaresGroup,
+--     group = whitespace_trim_group,
 --     pattern = "*",
 --     command = [[%s/\s\+$//e]],
 -- })
@@ -33,23 +33,3 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
--- Lazy package manager
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-    local lazyRepo = "https://github.com/folke/lazy.nvim.git"
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "--branch=stable", -- latest stable release
-        lazyRepo,
-        lazypath
-    })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup({
-    spec = "plugins",
-    change_detection = { notify = false },
-})

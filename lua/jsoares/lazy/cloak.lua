@@ -37,3 +37,4 @@ return {
         vim.keymap.set("n", "<leader>hl", vim.cmd.CloakPreviewLine, { desc = "Preview Cloak Line (Obfuscation)" })
     end
 }
+

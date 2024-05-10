@@ -5,10 +5,10 @@ return {
         require("nvim-treesitter.configs").setup({
             -- A list of parser names, or "all"
             ensure_installed = "all",
-            ignore_install = {},
-            modules = {
-            },
 
+            -- List of parsers to ignore installing (or "all")
+            ignore_install = {},
+            --
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
 
@@ -19,6 +19,8 @@ return {
             indent = {
                 enable = true,
             },
+
+            modules = {},
 
             highlight = {
                 -- `false` will disable the whole extension
@@ -33,3 +35,4 @@ return {
        })
    end
 }
+
