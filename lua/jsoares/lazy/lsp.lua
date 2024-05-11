@@ -133,7 +133,7 @@ return {
                 end
 
                 vim.keymap.set("n", "gd", vim.lsp.buf.definition, add_desc("Go to definition"))
-                vim.keymap.set("n", "<leader>t", vim.lsp.buf.type_definition, add_desc("View type definition"))
+                vim.keymap.set("n", "<leader>vt", vim.lsp.buf.type_definition, add_desc("View type definition"))
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, add_desc("Show signature help"))
                 vim.keymap.set("n", "<leader>vws", vim.lsp.buf.workspace_symbol, add_desc("Search workspace symbols"))
                 vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, add_desc("Open diagnostic float"))
